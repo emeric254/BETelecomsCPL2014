@@ -44,14 +44,15 @@ function main(general)
 
     // saisies
     var ordre = document.general.inputN.value;
-    var attenuation = document.general.inputAmax.value;
+    var ondulation = document.general.inputOmax.value;
     var freqCoup = document.general.inputFreqc.value;
     var impedance = document.general.inputRi.value;
 
-    if ( isNaN(ordre) || isNaN(attenuation) || isNaN(freqCoup) || isNaN(impedance) || ordre <= 0 || attenuation <= 0 || freqCoup <= 0 || impedance <= 0 /*|| !( ordre % 2 ) */)
+    if ( isNaN(ordre) || isNaN(ondulation) || isNaN(freqCoup) || isNaN(impedance) || ordre <= 0 || ondulation <= 0 || freqCoup <= 0 || impedance <= 0 /*|| !( ordre % 2 ) */)
     {
-        champsResultat.setAttribute('class','alert alert-danger');
-        champsResultat.innerHTML = "<p>Veuillez remplir correctement les champs de données</p>";
+        champsResultat.setAttribute('class','alert');
+        champsResultat.innerHTML = '<div class="alert alert-danger"> <p>Veuillez remplir correctement les champs de données.</p> </div>';
+        champsResultat.innerHTML += '<div class="alert alert-info"> <p>Pour plus d\'information consultez l\'<a href="aide.html"><strong>aide</strong></a>.</p> </div>';
     }
     else
     {
@@ -73,7 +74,7 @@ function main(general)
         Wc = 2 * Math.PI * freqCoup;
 
         /* beta */
-        beta = Math.log( ( cosh( attenuation / 17.37 ) ) / ( sinh( attenuation / 17.37 ) ) );
+        beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
 
         /* gamma */
         gamma = sinh( beta / ( 2 * ordre ) );
@@ -125,12 +126,7 @@ function main(general)
 
 
         /* Affichage des résultats sous forme Exponentielle */
-        resultats = '<div class="table-responsive">'
-        resultats += '<table class="table table-bordered table-striped">'
-        resultats += '<thead> <tr>'
-        resultats += '<th> Ordre # </th>   <th> C </th>   <th> L </th>   <th> R </th>'
-        resultats += '</tr> </thead>'
-        resultats += '<tbody>';
+        resultats = '<div class="table-responsive"> <table class="table table-bordered table-striped"> <thead> <tr> <th> Ordre # </th>   <th> C </th>   <th> L </th>   <th> R </th> </tr> </thead> <tbody>';
 
         for(k=1; k<= ordre; k++)
         {
@@ -139,21 +135,19 @@ function main(general)
             if( (k%2) != 0 )
             {
                 var aff = c[k].toPrecision(3);
-                resultats += "<td>"+ aff +"  F </td>";
-                resultats += "<td> - </td>";
-                resultats += "<td>" + Rn.toPrecision(2) + "  Ω </td>";
+                resultats += "<td>"+ aff +"  F </td> <td> - </td> <td>" + Rn.toPrecision(2) + "  Ω </td>";
             }
             else
             {
                 var aff = l[k].toPrecision(3);
-                resultats += "<td> - </td>";
-                resultats += "<td>" + aff + "  H </td>";
-                resultats += "<td>" + Rn.toPrecision(2) + "  Ω </td>";
+                resultats += "<td> - </td> <td>" + aff + "  H </td> <td>" + Rn.toPrecision(2) + "  Ω </td>";
             }
 
             resultats += "</tr>";
         }
+
         resultats += "</tbody> </div> </table>";
+
         champsResultat.innerHTML = resultats;
     }
 }
