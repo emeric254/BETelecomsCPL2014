@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <label for="inputOmax"> Omax (taux d'ondulation maximal) : </label>
+                        <label for="inputOmax"> Omax (taux d'ondulation maximum) : </label>
                         <div class="input-group">
                             <input type="number" min="0.1" step="0.1" class="form-control" id="inputOmax" value="1" data-bind="value:inputOmax" >
                             <span class="input-group-addon"> dB </span>
@@ -77,7 +77,10 @@
                 <div  class="col-lg-8">
                     <div  class="well">
                         <p>
-                            Le <strong>taux d'atténuation</strong> .
+                            Le <strong>taux d'ondulation maximum</strong> est une ondulation du module de leur fonction de transfert dans la bande passante.
+                        </p>
+                        <p>
+                            Pour un filtre parfait ce taux d'ondulation doit être nul, pour un filtre de mauvaise qualité il est élevé.
                         </p>
                     </div>
                 </div>
@@ -96,8 +99,12 @@
                 <div  class="col-lg-8">
                     <div  class="well">
                         <p>
-                            La <strong>fréquence de coupure</strong> correspond à la fréquence au bord de la bande passante.
-                            Toute fréquence supérieure sera atténuée.
+                            La <strong>fréquence de coupure</strong> est la fréquence limite de fonctionnement utile d'un circuit électronique.
+                            Dans le cas du filtre de Tchebychev au delà de notre fréquence de coupure les signaux de hautes fréquences sont atténués.
+                        </p>
+                        <p>
+                            La fréquence de coupure est la fréquence pour laquelle GdB = -3dB.
+                            La bande passante est alors l'ensemble des fréquences inférieures à la fréquence de coupure donnée.
                         </p>
                     </div>
                 </div>
