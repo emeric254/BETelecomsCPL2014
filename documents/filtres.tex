@@ -6,14 +6,91 @@ lolilol !
 
     \section{Code}
            \lstset{
-                language=bash, basicstyle=\ttfamily\small, columns=flexible,
+                language=java, basicstyle=\ttfamily\small, columns=flexible,
                 tabsize=2, extendedchars=true, showspaces=false,
                 showstringspaces=false, numbers=left, numberstyle=\tiny,
                 breaklines=true, breakautoindent=true, captionpos=b
             }
 
     \begin{lstlisting}
-    blablabla
-    //...........................//
-    blablabla
+        /* pulsation */
+        Wc = 2 * Math.PI * freqCoup;
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* beta */
+        beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* gamma */
+        gamma = sinh( beta / ( 2 * ordre ) );
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul de R */
+        if ( ( ordre % 2 ) != 0 )
+        {
+            R = 1;
+        }
+        else
+        {
+            R = tanh( beta / 4 ) * tanh( beta / 4 );
+        }
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul de Rn */
+        Rn = R * impedance;
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul des Ak */
+        for( k = 1; k <= ordre; k++ )
+        {
+            Ak[k] = Math.sin( ( ( 2 * k-1 ) * Math.PI ) / ( 2 * ordre ) );
+        }
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul des Bk */
+        for( k = 1; k <= ordre; k++ )
+        {
+            Bk[k] = gamma * gamma + Math.sin( k * Math.PI / ordre ) * Math.sin( k * Math.PI / ordre );
+        }
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul des Gk */
+        Gk[1] = 2 * Ak[1] / gamma;
+
+        for( k = 2; k <= ordre ; k++ )
+        {
+            Gk[k] = ( 4 * Ak[k-1] * Ak[k] ) / ( Bk[k-1] * Gk[k-1] );
+        }
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul des L */
+        for( k = 1; k <= ordre ; k++ )
+        {
+            l[k] = ( impedance * Gk[k] ) / Wc ;
+        }
+    \end{lstlisting}
+
+
+    \begin{lstlisting}
+        /* calcul des C */
+        for( k = 1; k <= ordre ; k++ )
+        {
+            c[k] = Gk[k] / ( ( impedance * Wc ) );
+        }
     \end{lstlisting}
