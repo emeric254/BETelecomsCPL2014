@@ -1,11 +1,26 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{color,amsmath,xcolor,listings,graphicx}
 \usepackage[francais]{babel}
 
 %% paramétrage pour les zones de 'code'
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
 \lstset{
-    language=Perl, commentstyle=\textit, frame=shadowbox,
+    language=JavaScript, commentstyle=\textit, frame=shadowbox,
     rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
     tabsize=3, extendedchars=true, showspaces=false,
     showstringspaces=false, numbers=left, numberstyle=\tiny,
@@ -48,34 +63,25 @@
 
 %% Différentes Parties / Chapitres / Autres fichiers à inclure :
 
-\chapter{Introduction}
+\section{Introduction}
         \paragraph{}
 lolilol !
 
-\chapter{Théorie}
-    \section{calcul de 1}
-        \paragraph{}
+\section{calcul de 1}
+    \paragraph{}
 
-    \section{calcul de 2}
-        \paragraph{}
+\section{calcul de 2}
+    \paragraph{}
 
-    \section{calcul de 3}
-        \paragraph{}
+\section{calcul de 3}
+    \paragraph{}
 
-    \section{calcul de 4}
-        \paragraph{}
+\section{calcul de 4}
+    \paragraph{}
 
-    \section{calcul de ... }
-        \paragraph{}
+\section{calcul de ... }
+    \paragraph{}
 
-
-\chapter{Code}
-           \lstset{
-                language=java, basicstyle=\ttfamily\small, columns=flexible,
-                tabsize=2, extendedchars=true, showspaces=false,
-                showstringspaces=false, numbers=left, numberstyle=\tiny,
-                breaklines=true, breakautoindent=true, captionpos=b
-            }
 
     \begin{lstlisting}
         /* pulsation */
