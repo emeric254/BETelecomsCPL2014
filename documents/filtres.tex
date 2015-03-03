@@ -1,10 +1,75 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{color,amsmath,xcolor,listings,graphicx}
+\usepackage[francais]{babel}
 
-\chapter{Filtres}
-    \section{Introduction}
+%% paramétrage pour les zones de 'code'
+\lstset{
+    language=Perl, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=3, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+%language=Octave %-> choose the language of the code
+%basicstyle=\footnotesize %-> the size of the fonts used for the code
+%numbers=left %-> where to put the line-numbers
+%numberstyle=\footnotesize %-> size of the fonts used for the line-numbers
+%stepnumber=2 -> the step between two line-numbers.
+%numbersep=5pt -> how far the line-numbers are from the code
+%backgroundcolor=\color{white} -> sets background color (needs package)
+%showspaces=false -> show spaces adding particular underscores
+%showstringspaces=false -> underline spaces within strings
+%showtabs=false -> show tabs within strings through particular underscores
+%frame=single -> adds a frame around the code
+%tabsize=2 -> sets default tab-size to 2 spaces
+%captionpos=b -> sets the caption-position to bottom
+%breaklines=true -> sets automatic line breaking
+%breakatwhitespace=false -> automatic breaks happen at whitespace
+%morecomment=[l]{//} -> displays comments in italics (language dependent)
+}
+
+
+%% infos du document
+\title{Filtres}
+\author{Loïc Barbaresco, Rémi Barbaste, Robin Degironde, Émeric Tosi}
+\date{\today}
+
+
+\begin{document}
+
+%% Afficher la page de garde : Titre + Auteur(s) + Date de dernière compilation
+    \maketitle{}
+
+    \setcounter{tocdepth}{1} % définir la profondeur de l'Index
+    \renewcommand{\contentsname}{Sommaire} % renommer l'Index en Sommaire
+    \tableofcontents{} % afficher l'Index
+    \clearpage
+
+
+%% Différentes Parties / Chapitres / Autres fichiers à inclure :
+
+\chapter{Introduction}
         \paragraph{}
 lolilol !
 
-    \section{Code}
+\chapter{Théorie}
+    \section{calcul de 1}
+        \paragraph{}
+
+    \section{calcul de 2}
+        \paragraph{}
+
+    \section{calcul de 3}
+        \paragraph{}
+
+    \section{calcul de 4}
+        \paragraph{}
+
+    \section{calcul de ... }
+        \paragraph{}
+
+
+\chapter{Code}
            \lstset{
                 language=java, basicstyle=\ttfamily\small, columns=flexible,
                 tabsize=2, extendedchars=true, showspaces=false,
@@ -94,3 +159,7 @@ lolilol !
             c[k] = Gk[k] / ( ( impedance * Wc ) );
         }
     \end{lstlisting}
+
+
+
+\end{document}

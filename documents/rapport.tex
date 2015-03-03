@@ -3,35 +3,9 @@
 \usepackage{color,amsmath,xcolor,listings,graphicx}
 \usepackage[francais]{babel}
 
-%% paramétrage pour les zones de 'code'
-\lstset{
-    language=Perl, commentstyle=\textit, frame=shadowbox,
-    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=3, extendedchars=true, showspaces=false,
-    showstringspaces=false, numbers=left, numberstyle=\tiny,
-    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-%language=Octave %-> choose the language of the code
-%basicstyle=\footnotesize %-> the size of the fonts used for the code
-%numbers=left %-> where to put the line-numbers
-%numberstyle=\footnotesize %-> size of the fonts used for the line-numbers
-%stepnumber=2 -> the step between two line-numbers.
-%numbersep=5pt -> how far the line-numbers are from the code
-%backgroundcolor=\color{white} -> sets background color (needs package)
-%showspaces=false -> show spaces adding particular underscores
-%showstringspaces=false -> underline spaces within strings
-%showtabs=false -> show tabs within strings through particular underscores
-%frame=single -> adds a frame around the code
-%tabsize=2 -> sets default tab-size to 2 spaces
-%captionpos=b -> sets the caption-position to bottom
-%breaklines=true -> sets automatic line breaking
-%breakatwhitespace=false -> automatic breaks happen at whitespace
-%morecomment=[l]{//} -> displays comments in italics (language dependent)
-}
-
-
 %% infos du document
-%%\title{Bureau d'étude 2014 - Télécommunication : Courant Porteur de Ligne \& Filtres}
-\title{Courant Porteur de Ligne \& Filtres}
+%%\title{Bureau d'étude 2014 - Télécommunication : Courant Porteur de Lignes \\\& \\Filtres}
+\title{Courant Porteur de Lignes \\\& \\Filtres}
 \author{Loïc Barbaresco, Rémi Barbaste, Robin Degironde, Émeric Tosi}
 \date{\today}
 
@@ -42,11 +16,12 @@
     \maketitle{}
 
 
-%    \begin{figure} % on s'en fout de l'image moche xD
+%    \begin{figure}
 %        \begin{center}
-            %\includegraphics{network.png}
-            %\includegraphics[height=128, width=128]{network.png}
-            %\includegraphics[scale=0.5]{network.png}
+            %%% au choix
+            %\includegraphics{image.png}
+            %\includegraphics[height=128, width=128]{image.png}
+            %\includegraphics[scale=0.5]{image.png}
 %        \end{center}
 %            \caption{ Laule } % ce qui apparait juste en dessous de l'image
 %            \label{c'est styler !}
@@ -60,8 +35,6 @@
 
 %% Différentes Parties / Chapitres / Autres fichiers à inclure :
     \input{cpl.tex}
-    \clearpage
-    \input{filtres.tex}
     \clearpage
 
 %% Annexes
