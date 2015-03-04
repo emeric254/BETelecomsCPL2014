@@ -67,40 +67,33 @@
         \paragraph{}
 lolilol !
 
-\section{calcul de 1}
+\section{calcul de la pulsation}
     \paragraph{}
-
-\section{calcul de 2}
-    \paragraph{}
-
-\section{calcul de 3}
-    \paragraph{}
-
-\section{calcul de 4}
-    \paragraph{}
-
-\section{calcul de ... }
-    \paragraph{}
-
-
+    ...
     \begin{lstlisting}
         /* pulsation */
         Wc = 2 * Math.PI * freqCoup;
     \end{lstlisting}
 
-
+\section{calcul de beta}
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* beta */
         beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
     \end{lstlisting}
 
-
+\section{calcul de gamma}
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* gamma */
         gamma = sinh( beta / ( 2 * ordre ) );
     \end{lstlisting}
 
-
+\section{calcul de R}
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul de R */
         if ( ( ordre % 2 ) != 0 )
@@ -111,15 +104,13 @@ lolilol !
         {
             R = tanh( beta / 4 ) * tanh( beta / 4 );
         }
-    \end{lstlisting}
-
-
-    \begin{lstlisting}
         /* calcul de Rn */
         Rn = R * impedance;
     \end{lstlisting}
 
-
+\section{calcul de Ak }
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul des Ak */
         for( k = 1; k <= ordre; k++ )
@@ -128,7 +119,9 @@ lolilol !
         }
     \end{lstlisting}
 
-
+\section{calcul de Ak }
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul des Bk */
         for( k = 1; k <= ordre; k++ )
@@ -137,7 +130,9 @@ lolilol !
         }
     \end{lstlisting}
 
-
+\section{calcul de Gk }
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul des Gk */
         Gk[1] = 2 * Ak[1] / gamma;
@@ -148,7 +143,9 @@ lolilol !
         }
     \end{lstlisting}
 
-
+\section{calcul de L }
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul des L */
         for( k = 1; k <= ordre ; k++ )
@@ -157,7 +154,9 @@ lolilol !
         }
     \end{lstlisting}
 
-
+\section{calcul de C }
+    \paragraph{}
+    ...
     \begin{lstlisting}
         /* calcul des C */
         for( k = 1; k <= ordre ; k++ )
