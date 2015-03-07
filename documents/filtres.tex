@@ -77,7 +77,7 @@ lolilol !
 
 \section{calcul de beta}
     \paragraph{}
-    ...\[ \mbox{Béta} = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
+    ...\[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
     \begin{lstlisting}
         /* beta */
         beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
@@ -85,7 +85,7 @@ lolilol !
 
 \section{calcul de gamma}
     \paragraph{}
-    ...
+    ...\[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
     \begin{lstlisting}
         /* gamma */
         gamma = sinh( beta / ( 2 * ordre ) );
@@ -93,7 +93,8 @@ lolilol !
 
 \section{calcul de R}
     \paragraph{}
-    ...
+    Si l'ordre est pair \[ \mbox{Résistance équivalente Rn} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
+    Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
     \begin{lstlisting}
         /* calcul de R */
         if ( ( ordre % 2 ) != 0 )
