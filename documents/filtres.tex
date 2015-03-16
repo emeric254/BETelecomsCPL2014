@@ -4,8 +4,8 @@
 \usepackage[francais]{babel}
 
 %% paramétrage pour les zones de 'code'
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, for, in, while, do, else, case, break},
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
@@ -20,9 +20,9 @@
 }
 
 \lstset{
-    language=JavaScript, commentstyle=\textit, frame=shadowbox,
+    language=javascript, commentstyle=\textit, frame=shadowbox,
     rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=3, extendedchars=true, showspaces=false,
+    tabsize=4, extendedchars=true, showspaces=false,
     showstringspaces=false, numbers=left, numberstyle=\tiny,
     breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
 %language=Octave %-> choose the language of the code
@@ -72,7 +72,9 @@ lolilol !
     ...\[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
     \begin{lstlisting}
         /* pulsation */
+
         Wc = 2 * Math.PI * freqCoup;
+
     \end{lstlisting}
 
 \section{calcul de beta}
@@ -80,7 +82,9 @@ lolilol !
     ...\[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
     \begin{lstlisting}
         /* beta */
+
         beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
+
     \end{lstlisting}
 
 \section{calcul de gamma}
@@ -88,7 +92,9 @@ lolilol !
     ...\[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
     \begin{lstlisting}
         /* gamma */
+
         gamma = sinh( beta / ( 2 * ordre ) );
+
     \end{lstlisting}
 
 \section{calcul de R}
@@ -97,6 +103,7 @@ lolilol !
     Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
     \begin{lstlisting}
         /* calcul de R */
+
         if ( ( ordre % 2 ) != 0 )
         {
             R = 1;
@@ -105,8 +112,11 @@ lolilol !
         {
             R = tanh( beta / 4 ) * tanh( beta / 4 );
         }
+
         /* calcul de Rn */
+
         Rn = R * impedance;
+
     \end{lstlisting}
 
 \section{calcul de Ak }
@@ -114,10 +124,12 @@ lolilol !
     ... \[ \mbox{Ak} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
     \begin{lstlisting}
         /* calcul des Ak */
+
         for( k = 1; k <= ordre; k++ )
         {
             Ak[k] = Math.sin( ( ( 2 * k-1 ) * Math.PI ) / ( 2 * ordre ) );
         }
+
     \end{lstlisting}
 
 \section{calcul de Bk }
@@ -125,10 +137,12 @@ lolilol !
     ... \[ \mbox{Bk} = 0 \]
     \begin{lstlisting}
         /* calcul des Bk */
+
         for( k = 1; k <= ordre; k++ )
         {
             Bk[k] = gamma * gamma + Math.sin( k * Math.PI / ordre ) * Math.sin( k * Math.PI / ordre );
         }
+
     \end{lstlisting}
 
 \section{calcul de Gk }
@@ -136,12 +150,14 @@ lolilol !
     ... \[ \mbox{Gk} = 0 \]
     \begin{lstlisting}
         /* calcul des Gk */
+
         Gk[1] = 2 * Ak[1] / gamma;
 
         for( k = 2; k <= ordre ; k++ )
         {
             Gk[k] = ( 4 * Ak[k-1] * Ak[k] ) / ( Bk[k-1] * Gk[k-1] );
         }
+
     \end{lstlisting}
 
 \section{calcul de L }
@@ -149,10 +165,12 @@ lolilol !
     ... \[ \mbox{L} = 0 \]
     \begin{lstlisting}
         /* calcul des L */
+
         for( k = 1; k <= ordre ; k++ )
         {
             l[k] = ( impedance * Gk[k] ) / Wc ;
         }
+
     \end{lstlisting}
 
 \section{calcul de C }
@@ -160,10 +178,12 @@ lolilol !
     ... \[ \mbox{C} = 0 \]
     \begin{lstlisting}
         /* calcul des C */
+
         for( k = 1; k <= ordre ; k++ )
         {
             c[k] = Gk[k] / ( ( impedance * Wc ) );
         }
+
     \end{lstlisting}
 
 
