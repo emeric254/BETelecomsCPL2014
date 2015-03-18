@@ -54,6 +54,7 @@
 
 %% Afficher la page de garde : Titre + Auteur(s) + Date de dernière compilation
     \maketitle{}
+    \clearpage
 
     \setcounter{tocdepth}{1} % définir la profondeur de l'Index
     \renewcommand{\contentsname}{Sommaire} % renommer l'Index en Sommaire
@@ -61,26 +62,44 @@
     \clearpage
 
 
-%% Différentes Parties / Chapitres / Autres fichiers à inclure :
-
-\section{Introduction}
-        \paragraph{}
-Le filtrage analogique peut être réalisé à partir d’éléments passifs (RLC) ou actifs (structures à AOP + RC).
-Il est basé sur la détermination d’un cahier des charges et du calcul d’une fonction de transfert associée.
-Pour les signaux numériques, le filtrage numérique (manipulation d’équation en z -1) existe mais ne sera pas abordé dans ce cours.
-Le but du filtrage est d’isoler une information utile contenue dans une bande passante déterminée, par rapport aux bruits et aux autres informations existants hors de cette bande.
-Il s’agit donc d’un filtrage fréquentiel.
-La décomposition dans le domaine de Fourier du signal et le travail sur son spectre sont donc dans un premier temps indispensables.
-
-\section{inconvenients}
+\section{Définition}
     \paragraph{}
-Temps de propagation de groupe non constant en bande passante (déphasage non linéaire)
-    \paragraph{}
-Très mauvaise linéarité de phase
-    \paragraph{}
-Ondulation dans la bande passante
+Un filtre est un dispositif (actif ou passif) qui permet de réaliser une opération de traitement du signal.
+Il permet en effet de transformer le signal reçu en entrée en un signal de sortie différent par le biais de circuits électroniques qui servent à modifier le spectre de fréquence et/ou la phase qui lui est associé.
+Ils ont pour but d'isoler,  d'éliminer ou de séparer des signaux situés dans une certaine bande passante.
+Les opérations de traitements peuvent consister à éliminer ou affaiblir des fréquences parasites (comme du bruit) et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
 
-\section{caracteristiques}
+    \clearpage
+
+\section{Différences entre filtre analogique et numérique}
+    \paragraph{}
+Parmi les différents filtres existants, on peut les classer selon deux catégories : ceux analogiques et ceux numériques.
+    \paragraph{}
+Tout d'abord, on parle de filtre analogique lorsqu'un signal qui traverse un circuit électrique est différent en sortie que celui présent en entrée et que cette modification est désiré par l'utilisateur.
+    \paragraph{}
+Ensuite,
+    \paragraph{}
+==> Définition d'un filtre analogique
+    \paragraph{}
+==> Définition d'un filtre numérique
+
+
+\section{Différences entre filtre passif et filtre actif}
+    \paragraph{}
+\emph{Aborder notamment le problème posé par l'utilisation des HF.}
+Voir page 13 du doc 'filtrage-analogique.pdf'.
+    \paragraph{}
+Le problème posé par l'utilisation des hautes fréquences (HF) est que la fonction d'amplificateur opérationnel n'existe pas (ecrit dans cours) .....
+    \paragraph{}
+Comparaison entre les lois mathématiques des filtres de Butterworth, Tchebyscheff, Cauer,Bessel et Legendre.
+    \paragraph{}
+Avantages, inconvénients, .....
+    \paragraph{}
+Choisir des critères de comparaison, les catalogues sont interdits.
+
+    \clearpage
+
+\section{Caracteristiques}
     \paragraph{}
 Ordre plus petit pour une grande sélectivité
     \paragraph{}
@@ -90,7 +109,19 @@ Pente d’atténuation supérieure à 40dB/décade autour de la fréquence de co
     \paragraph{}
 Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
-\section{calcul de la pulsation}
+
+\section{Inconvenients}
+    \paragraph{}
+Temps de propagation de groupe non constant en bande passante (déphasage non linéaire)
+    \paragraph{}
+Très mauvaise linéarité de phase
+    \paragraph{}
+Ondulation dans la bande passante
+
+    \clearpage
+
+\section{Calculs}
+\subsection{calcul de la pulsation}
     \paragraph{}
     ...\[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
     \begin{lstlisting}
@@ -100,7 +131,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de beta}
+\subsection{calcul de beta}
     \paragraph{}
     ...\[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
     \begin{lstlisting}
@@ -110,7 +141,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de gamma}
+\subsection{calcul de gamma}
     \paragraph{}
     ...\[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
     \begin{lstlisting}
@@ -120,7 +151,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de R}
+\subsection{calcul de R}
     \paragraph{}
     Si l'ordre est pair \[ \mbox{Résistance équivalente Rn} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
     Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
@@ -142,7 +173,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de Ak }
+\subsection{calcul de Ak }
     \paragraph{}
     ... \[ \mbox{Ak} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
     \begin{lstlisting}
@@ -155,7 +186,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de Bk }
+\subsection{calcul de Bk }
     \paragraph{}
     ... \[ \mbox{Bk} = 0 \]
     \begin{lstlisting}
@@ -168,7 +199,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de Gk }
+\subsection{calcul de Gk }
     \paragraph{}
     ... \[ \mbox{Gk} = 0 \]
     \begin{lstlisting}
@@ -183,7 +214,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de L }
+\subsection{calcul de L }
     \paragraph{}
     ... \[ \mbox{L} = 0 \]
     \begin{lstlisting}
@@ -196,7 +227,7 @@ Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
     \end{lstlisting}
 
-\section{calcul de C }
+\subsection{calcul de C }
     \paragraph{}
     ... \[ \mbox{C} = 0 \]
     \begin{lstlisting}
