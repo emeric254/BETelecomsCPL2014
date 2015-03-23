@@ -44,6 +44,7 @@
     \setcounter{tocdepth}{1} % définir la profondeur de l'Index
     \renewcommand{\contentsname}{Sommaire} % renommer l'Index en Sommaire
     \tableofcontents{} % afficher l'Index
+
     \clearpage
 
 
@@ -54,8 +55,10 @@ En effet, il permet de transformer un signal reçu en entrée en un signal de so
     \paragraph{}
 Les filtres permettent donc l’isolement, l’élimination ou la séparation de signaux.
 Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquences parasites (comme du bruit), et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
+\emph{ICI IMAGE DE BOGOSS}
 
     \clearpage
+
 
 \section{Différences entre filtre analogique et numérique}
     \paragraph{}
@@ -70,6 +73,7 @@ On modifie, vérifie ou trie ensuite ces informations binaires constituant un fl
 On émet finalement un nouveau signal généré à partir de ce flux binaire de données sur le support en sortie grâce par exemple à un convertisseur numérique-analogique (CNA).
 
     \clearpage
+
 
 \section{Différences entre filtre passif et actif}
     \paragraph{}
@@ -87,26 +91,40 @@ La fonction d’amplificateur opérationnel n’existe pas non plus.
 
     \clearpage
 
-\section{Caracteristiques}
-    \paragraph{}
-    \begin{itemize}
-        \item Pente d’atténuation supérieure à 40dB/décade autour de la fréquence de coupure;
-        \item Filtres d’ordre impair : Impédances d’entrée et de sortie identiques;
-        \item Ordre plus petit pour une grande sélectivité;
-        \item Calculs simples.
-    \end{itemize}
 
-\section{Inconvenients}
-    \paragraph{}
-    \begin{itemize}
-        \item Très mauvaise linéarité de phase;
-        \item Temps de propagation de groupe non constant en bande passante (déphasage non linéaire);
-        \item Ondulation dans la bande passante, à ordre n, il présente n ondulation(s) dans la bande passante.
-    \end{itemize}
+\section{Comparaison de filtres}
+    \subsection{Caracteristiques}
+        \paragraph{}
+        \begin{itemize}
+            \item Pente d’atténuation supérieure à 40dB/décade autour de la fréquence de coupure;
+            \item Filtres d’ordre impair : Impédances d’entrée et de sortie identiques;
+            \item Ordre plus petit pour une grande sélectivité;
+            \item Calculs simples.
+        \end{itemize}
+
+    \subsection{Inconvenients}
+        \paragraph{}
+        \begin{itemize}
+            \item Très mauvaise linéarité de phase;
+            \item Temps de propagation de groupe non constant en bande passante (déphasage non linéaire);
+            \item Ondulation dans la bande passante, à ordre n, il présente n ondulation(s) dans la bande passante.
+        \end{itemize}
 
     \clearpage
 
+
 \section{Calculs}
+    \paragraph{}
+Afin de réaliser un programme de calcul des filtres passe-bas de Tchebyscheff, nous avons choisi d’utiliser du JavaScript (pour la partie traitement) associé au couple HTML/CSS (pour la partie rendu et affichage).
+Dans la partie JavaScript, nous calculons les valeurs des éléments localisés Lk, Ck et Rn à partir des caractéristiques du filtre.
+Ces dernières, fournies par l'utilisateur, sont l’ordre, le taux d’ondulation maximal, la fréquence de coupure ainsi que l’impédance R1.
+    \paragraph{}
+A partir des valeurs saisies, nous calculons la pulsation, la valeur de beta et de gamma, ensuite la valeur de R en appliquant la bonne formule selon si l’ordre est pair ou impair.
+Puis nous déterminons les valeurs des Ak, Bk, Gk, L, C.
+    \paragraph{}
+Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordre, la valeur du condensateur C, celle de l’inductance L et celle de la résistance R.
+\emph{ICI IMAGE SITE DE BOGOSS}
+
 \subsection{calcul de la pulsation}
     \paragraph{}
     ...\[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
