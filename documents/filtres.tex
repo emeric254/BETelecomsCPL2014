@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{color,amsmath,xcolor,listings,graphicx}
 \usepackage[francais]{babel}
+\usepackage{hyperref}
 
 %% paramétrage pour les zones de 'code'
 \lstdefinelanguage{javascript}{
@@ -25,22 +26,6 @@
     tabsize=4, extendedchars=true, showspaces=false,
     showstringspaces=false, numbers=left, numberstyle=\tiny,
     breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-%language=Octave %-> choose the language of the code
-%basicstyle=\footnotesize %-> the size of the fonts used for the code
-%numbers=left %-> where to put the line-numbers
-%numberstyle=\footnotesize %-> size of the fonts used for the line-numbers
-%stepnumber=2 -> the step between two line-numbers.
-%numbersep=5pt -> how far the line-numbers are from the code
-%backgroundcolor=\color{white} -> sets background color (needs package)
-%showspaces=false -> show spaces adding particular underscores
-%showstringspaces=false -> underline spaces within strings
-%showtabs=false -> show tabs within strings through particular underscores
-%frame=single -> adds a frame around the code
-%tabsize=2 -> sets default tab-size to 2 spaces
-%captionpos=b -> sets the caption-position to bottom
-%breaklines=true -> sets automatic line breaking
-%breakatwhitespace=false -> automatic breaks happen at whitespace
-%morecomment=[l]{//} -> displays comments in italics (language dependent)
 }
 
 
@@ -64,59 +49,39 @@
 
 \section{Définition}
     \paragraph{}
-Un filtre est un dispositif (actif ou passif) qui permet de réaliser une opération de traitement du signal.
-Il permet en effet de transformer le signal reçu en entrée en un signal de sortie différent par le biais de circuits électroniques qui servent à modifier le spectre de fréquence et/ou la phase qui lui est associé.
-Ils ont pour but d'isoler,  d'éliminer ou de séparer des signaux situés dans une certaine bande passante.
-Les opérations de traitements peuvent consister à éliminer ou affaiblir des fréquences parasites (comme du bruit) et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
+Un filtre est un dispositif (actif ou passif) qui permet de réaliser une opération de traitement du signal. En effet, il permet de transformer un signal reçu en entrée en un signal de sortie différent par le biais de circuits électroniques, ces derniers servant à modifier le spectre de fréquence et/ou la phase du signal reçu.
+    \paragraph{}
+Les filtres permettent donc l’isolement, l’élimination ou la séparation de signaux. Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquences parasites (comme du bruit), et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
 
     \clearpage
 
 \section{Différences entre filtre analogique et numérique}
     \paragraph{}
-Parmi les différents filtres existants, on peut les classer selon deux catégories : ceux analogiques et ceux numériques.
+Parmi les différents filtres existants, on peut les classer selon deux catégories : analogiques ou numériques.
     \paragraph{}
-Tout d'abord, on parle de filtre analogique lorsqu'un signal qui traverse un circuit électrique est différent en sortie que celui présent en entrée et que cette modification est désiré par l'utilisateur.
+Un filtre analogique permet de traiter de façon analogique un signal en retirant les signaux indésirables afin de ne conserver qu’un signal utile. De ce fait, Le signal qui le traverse est diffèrent en sortie que celui présent en entrée, cette modification est appliquée directement au signal.
     \paragraph{}
-Ensuite,
-    \paragraph{}
-==> Définition d'un filtre analogique
-    \paragraph{}
-==> Définition d'un filtre numérique
+Un filtre numérique permet de traiter numériquement un signal. Pour cela, le signal est numérisé sur le support en entrée, grâce par exemple a un convertisseur analogique-numérique (CAN) afin d’échantillonner ce signal. On modifie, vérifie ou trie ensuite ces informations binaires constituant un flux de données. On émet finalement un nouveau signal généré a partir de ce flux binaire de données sur le support en sortie grâce par exemple à un convertisseur numérique-analogique (CNA).
 
+    \clearpage
 
-\section{Différences entre filtre passif et filtre actif}
+\section{Différences entre filtre passif et actif}
     \paragraph{}
-\emph{Aborder notamment le problème posé par l'utilisation des HF.}
-Voir page 13 du doc 'filtrage-analogique.pdf'.
+Les filtres passifs son composés uniquement d’éléments passifs (c’est-à-dire des éléments résistifs, capacitifs et inductifs) de ce fait, le gain d’un tel filtre ne peut excéder 1. Un tel type de filtre ne peut qu’atténuer une partie d’un signal, il ne peut pas être utilisé donc le but d’amplifier un signal. Les réalisations les plus simples sont réalisées à partir de circuits RC ou RL, cependant on peut trouver des association diverses de composants (comme LC ou RLC), toutefois ces circuits sont plus complexes.
     \paragraph{}
-Le problème posé par l'utilisation des hautes fréquences (HF) est que la fonction d'amplificateur opérationnel n'existe pas (ecrit dans cours) .....
+Les filtres actifs contiennent au moins un élément actif comme un transistor ou un amplificateur opérationnel, qui va amplifier le signal. Avec un tel filtre, il est possible d’avoir un gain supérieur à 1. On peut les utiliser pour atténuer tout comme pour amplifier certaines fréquences d’un signal.
     \paragraph{}
-Comparaison entre les lois mathématiques des filtres de Butterworth, Tchebyscheff, Cauer,Bessel et Legendre.
-    \paragraph{}
-Avantages, inconvénients, .....
-    \paragraph{}
-Choisir des critères de comparaison, les catalogues sont interdits.
+Toutefois lors de l’utilisation des hautes fréquences, le problème qui se pose est que la notion de filtre ne signifie plus rien. Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation, des capacités et des inductances qui influes sur le résultat du filtre. La fonction d’amplificateur opérationnel n’existe pas non plus.
 
     \clearpage
 
 \section{Caracteristiques}
     \paragraph{}
-Ordre plus petit pour une grande sélectivité
-    \paragraph{}
-Pente d’atténuation supérieure à 40dB/décade autour de la fréquence de coupure
-    \paragraph{}
-À ordre n, il présente n ondulation(s) dans la bande passante
-    \paragraph{}
-Filtres d’ordre impair : Impédances d’entrée et de sortie identiques
 
 
 \section{Inconvenients}
     \paragraph{}
-Temps de propagation de groupe non constant en bande passante (déphasage non linéaire)
-    \paragraph{}
-Très mauvaise linéarité de phase
-    \paragraph{}
-Ondulation dans la bande passante
+
 
     \clearpage
 
