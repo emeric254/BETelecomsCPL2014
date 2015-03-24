@@ -152,7 +152,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \subsection{calcul de la pulsation}
         \paragraph{}
-        \[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
+        \[ W_{c} = 2 * \pi * \mbox{ Fréquence de coupure}\]
         \begin{lstlisting}
             /* pulsation */
 
@@ -184,8 +184,8 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \subsection{calcul de R}
         \paragraph{}
-        Si l'ordre est pair \[ \mbox{Résistance équivalente Rn} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
-        Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
+        Si l'ordre est pair \[ R_{n} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
+        Si l'ordre est impair \[ R_{n} = \mbox{Impédance} \]
         \begin{lstlisting}
             /* calcul de R */
 
@@ -206,7 +206,8 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \subsection{calcul de Ak }
         \paragraph{}
-        \[ \mbox{Ak} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
+        \[ A_{k} = \frac{\sin{2 * (k-1) * \pi}}{2 * \mbox{Ordre}} \]
+        \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
             /* calcul des Ak */
 
@@ -221,7 +222,8 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \subsection{calcul de Bk }
         \paragraph{}
-        ... \[ \mbox{Bk} = 0 \]
+        \[ B_{k} = \gamma ^2 + \sin( \frac{k * \pi}{\mbox{Ordre}} ) ^2 \]
+        \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
             /* calcul des Bk */
 
@@ -234,7 +236,9 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \subsection{calcul de Gk }
         \paragraph{}
-        ... \[ \mbox{Gk} = 0 \]
+        \[ G_1 = 2 * \frac{A_1}{\gamma} \]
+        \[ G_{k} = \frac{(4 * A_{k-1} * A_{k})}{B_{k-1} * G_{k-1}} \]
+        \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
             /* calcul des Gk */
 
@@ -249,9 +253,10 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsection{calcul de L }
+    \subsection{calcul de Lk }
         \paragraph{}
-        ... \[ \mbox{L} = 0 \]
+        \[ L_{k} = \frac{G_{k} * \mbox{Impédance}}{W_{c}} \]
+        \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
             /* calcul des L */
 
@@ -262,9 +267,10 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de C }
+    \subsection{calcul de Ck }
         \paragraph{}
-        ... \[ \mbox{C} = 0 \]
+        \[ C_{k} = \frac{G_{k}}{\mbox{Impédance} * W_{c}} \]
+        \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
             /* calcul des C */
 
