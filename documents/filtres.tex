@@ -39,9 +39,10 @@
 
 %% Afficher la page de garde : Titre + Auteur(s) + Date de dernière compilation
     \maketitle{}
+
     \clearpage
 
-    \setcounter{tocdepth}{1} % définir la profondeur de l'Index
+    \setcounter{tocdepth}{2} % définir la profondeur de l'Index
     \renewcommand{\contentsname}{Sommaire} % renommer l'Index en Sommaire
     \tableofcontents{} % afficher l'Index
 
@@ -55,7 +56,22 @@ En effet, il permet de transformer un signal reçu en entrée en un signal de so
     \paragraph{}
 Les filtres permettent donc l’isolement, l’élimination ou la séparation de signaux.
 Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquences parasites (comme du bruit), et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
-\emph{ICI IMAGE DE BOGOSS}
+    \\
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.7]{images/filtres/filtre-passif.jpg}
+        \end{center}
+            \caption{ Un filtre passif }
+            \label{Un exemple de filtre passif}
+    \end{figure}
+    \\
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.7]{images/filtres/filtre-actif.jpg}
+        \end{center}
+            \caption{ Un filtre actif }
+            \label{Un exemple de filtre actif}
+    \end{figure}
 
     \clearpage
 
@@ -123,127 +139,168 @@ A partir des valeurs saisies, nous calculons la pulsation, la valeur de beta et 
 Puis nous déterminons les valeurs des Ak, Bk, Gk, L, C.
     \paragraph{}
 Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordre, la valeur du condensateur C, celle de l’inductance L et celle de la résistance R.
-\emph{ICI IMAGE SITE DE BOGOSS}
+    \\
+    \begin{figure}[h]
+        \begin{center}
+            \includegraphics[scale=0.3]{images/filtres/screen-site.png}
+        \end{center}
+            \caption{ La page de calcul de notre outil }
+            \label{La page de calcul de notre outil de calcul de filtres de Tchebyscheff}
+    \end{figure}
 
-\subsection{calcul de la pulsation}
-    \paragraph{}
-    ...\[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
-    \begin{lstlisting}
-        /* pulsation */
+    \clearpage
 
-        Wc = 2 * Math.PI * freqCoup;
+    \subsection{calcul de la pulsation}
+        \paragraph{}
+        \[ \mbox{Pulsation Wc} = 2 * \pi * \mbox{ Fréquence de coupure}\]
+        \begin{lstlisting}
+            /* pulsation */
 
-    \end{lstlisting}
+            Wc = 2 * Math.PI * freqCoup;
 
-\subsection{calcul de beta}
-    \paragraph{}
-    ...\[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
-    \begin{lstlisting}
-        /* beta */
+        \end{lstlisting}
 
-        beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
+    \subsection{calcul de beta}
+        \paragraph{}
+        \[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
+        \begin{lstlisting}
+            /* beta */
 
-    \end{lstlisting}
+            beta = Math.log( ( cosh( ondulation / 17.37 ) ) / ( sinh( ondulation / 17.37 ) ) );
 
-\subsection{calcul de gamma}
-    \paragraph{}
-    ...\[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
-    \begin{lstlisting}
-        /* gamma */
+        \end{lstlisting}
 
-        gamma = sinh( beta / ( 2 * ordre ) );
+    \subsection{calcul de gamma}
+        \paragraph{}
+        \[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
+        \begin{lstlisting}
+            /* gamma */
 
-    \end{lstlisting}
+            gamma = sinh( beta / ( 2 * ordre ) );
 
-\subsection{calcul de R}
-    \paragraph{}
-    Si l'ordre est pair \[ \mbox{Résistance équivalente Rn} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
-    Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
-    \begin{lstlisting}
-        /* calcul de R */
+        \end{lstlisting}
 
-        if ( ( ordre % 2 ) != 0 )
-        {
-            R = 1;
-        }
-        else
-        {
-            R = tanh( beta / 4 ) * tanh( beta / 4 );
-        }
+    \clearpage
 
-        /* calcul de Rn */
+    \subsection{calcul de R}
+        \paragraph{}
+        Si l'ordre est pair \[ \mbox{Résistance équivalente Rn} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
+        Si l'ordre est impair \[ \mbox{Résistance équivalente Rn} = \mbox{Impédance} \]
+        \begin{lstlisting}
+            /* calcul de R */
 
-        Rn = R * impedance;
+            if ( ( ordre % 2 ) != 0 )
+            {
+                R = 1;
+            }
+            else
+            {
+                R = tanh( beta / 4 ) * tanh( beta / 4 );
+            }
 
-    \end{lstlisting}
+            /* calcul de Rn */
 
-\subsection{calcul de Ak }
-    \paragraph{}
-    ... \[ \mbox{Ak} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
-    \begin{lstlisting}
-        /* calcul des Ak */
+            Rn = R * impedance;
 
-        for( k = 1; k <= ordre; k++ )
-        {
-            Ak[k] = Math.sin( ( ( 2 * k-1 ) * Math.PI ) / ( 2 * ordre ) );
-        }
+        \end{lstlisting}
 
-    \end{lstlisting}
+    \subsection{calcul de Ak }
+        \paragraph{}
+        \[ \mbox{Ak} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
+        \begin{lstlisting}
+            /* calcul des Ak */
 
-\subsection{calcul de Bk }
-    \paragraph{}
-    ... \[ \mbox{Bk} = 0 \]
-    \begin{lstlisting}
-        /* calcul des Bk */
+            for( k = 1; k <= ordre; k++ )
+            {
+                Ak[k] = Math.sin( ( ( 2 * k-1 ) * Math.PI ) / ( 2 * ordre ) );
+            }
 
-        for( k = 1; k <= ordre; k++ )
-        {
-            Bk[k] = gamma * gamma + Math.sin( k * Math.PI / ordre ) * Math.sin( k * Math.PI / ordre );
-        }
+        \end{lstlisting}
 
-    \end{lstlisting}
+    \clearpage
 
-\subsection{calcul de Gk }
-    \paragraph{}
-    ... \[ \mbox{Gk} = 0 \]
-    \begin{lstlisting}
-        /* calcul des Gk */
+    \subsection{calcul de Bk }
+        \paragraph{}
+        ... \[ \mbox{Bk} = 0 \]
+        \begin{lstlisting}
+            /* calcul des Bk */
 
-        Gk[1] = 2 * Ak[1] / gamma;
+            for( k = 1; k <= ordre; k++ )
+            {
+                Bk[k] = gamma * gamma + Math.sin( k * Math.PI / ordre ) * Math.sin( k * Math.PI / ordre );
+            }
 
-        for( k = 2; k <= ordre ; k++ )
-        {
-            Gk[k] = ( 4 * Ak[k-1] * Ak[k] ) / ( Bk[k-1] * Gk[k-1] );
-        }
+        \end{lstlisting}
 
-    \end{lstlisting}
+    \subsection{calcul de Gk }
+        \paragraph{}
+        ... \[ \mbox{Gk} = 0 \]
+        \begin{lstlisting}
+            /* calcul des Gk */
 
-\subsection{calcul de L }
-    \paragraph{}
-    ... \[ \mbox{L} = 0 \]
-    \begin{lstlisting}
-        /* calcul des L */
+            Gk[1] = 2 * Ak[1] / gamma;
 
-        for( k = 1; k <= ordre ; k++ )
-        {
-            l[k] = ( impedance * Gk[k] ) / Wc ;
-        }
+            for( k = 2; k <= ordre ; k++ )
+            {
+                Gk[k] = ( 4 * Ak[k-1] * Ak[k] ) / ( Bk[k-1] * Gk[k-1] );
+            }
 
-    \end{lstlisting}
+        \end{lstlisting}
 
-\subsection{calcul de C }
-    \paragraph{}
-    ... \[ \mbox{C} = 0 \]
-    \begin{lstlisting}
-        /* calcul des C */
+    \clearpage
 
-        for( k = 1; k <= ordre ; k++ )
-        {
-            c[k] = Gk[k] / ( ( impedance * Wc ) );
-        }
+    \subsection{calcul de L }
+        \paragraph{}
+        ... \[ \mbox{L} = 0 \]
+        \begin{lstlisting}
+            /* calcul des L */
 
-    \end{lstlisting}
+            for( k = 1; k <= ordre ; k++ )
+            {
+                l[k] = ( impedance * Gk[k] ) / Wc ;
+            }
+
+        \end{lstlisting}
+
+    \subsection{calcul de C }
+        \paragraph{}
+        ... \[ \mbox{C} = 0 \]
+        \begin{lstlisting}
+            /* calcul des C */
+
+            for( k = 1; k <= ordre ; k++ )
+            {
+                c[k] = Gk[k] / ( ( impedance * Wc ) );
+            }
+
+        \end{lstlisting}
 
 
+    \clearpage
+
+\section{Code complet}
+    \subsection{HTML}
+\lstset{
+    language=html, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+        \lstinputlisting{../Filtres/sources/index.html}
+
+    \clearpage
+
+    \subsection{JavaScript}
+\lstset{
+    language=javascript, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+        \lstinputlisting{../Filtres/sources/rsc/app.js}
+
+    \clearpage
 
 \end{document}

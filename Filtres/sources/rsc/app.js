@@ -51,7 +51,7 @@ function main(general)
     if ( isNaN(ordre) || isNaN(ondulation) || isNaN(freqCoup) || isNaN(impedance) || ordre <= 0 || ondulation <= 0 || freqCoup <= 0 || impedance <= 0 /*|| !( ordre % 2 ) */)
     {
         champsResultat.setAttribute('class','alert');
-        champsResultat.innerHTML = '<div class="alert alert-danger"> <p>Veuillez remplir correctement les champs de données.</p> </div>';
+        champsResultat.innerHTML = '<div class="alert alert-danger"> <p>Veuillez remplir correctement les champs de donn&eacute;es.</p> </div>';
         champsResultat.innerHTML += '<div class="alert alert-info"> <p>Pour plus d\'information consultez l\'<a href="aide.html"><strong>aide</strong></a>.</p> </div>';
     }
     else
@@ -65,7 +65,7 @@ function main(general)
         var l = new Array();
         var k = 0;
 
-        /* Traduction de la fréquence de coupure en Hz */
+        /* Traduction de la fr&eacute;quence de coupure en Hz */
         freqCoup *= 1000; // MHz  ->  KHz
         freqCoup *= 1000; // KHz  ->  Hz
 
@@ -125,7 +125,7 @@ function main(general)
         }
 
 
-        /* Affichage des résultats sous forme Exponentielle */
+        /* Affichage des r&eacute;sultats sous forme Exponentielle */
         resultats = '<div class="table-responsive"> <table class="table table-bordered table-striped"> <thead> <tr> <th> Ordre # </th>   <th> C </th>   <th> L </th>   <th> R </th> </tr> </thead> <tbody>';
 
         for(k=1; k<= ordre; k++)
@@ -135,12 +135,12 @@ function main(general)
             if( (k%2) != 0 )
             {
                 var aff = c[k].toPrecision(3);
-                resultats += "<td>"+ aff +"  F </td> <td> - </td> <td>" + Rn.toPrecision(2) + "  Ω </td>";
+                resultats += "<td>"+ aff +"  F </td> <td> - </td> <td>" + Rn.toPrecision(2) + "  &#937; </td>";
             }
             else
             {
                 var aff = l[k].toPrecision(3);
-                resultats += "<td> - </td> <td>" + aff + "  H </td> <td>" + Rn.toPrecision(2) + "  Ω </td>";
+                resultats += "<td> - </td> <td>" + aff + "  H </td> <td>" + Rn.toPrecision(2) + "  &#937; </td>";
             }
 
             resultats += "</tr>";
