@@ -135,16 +135,26 @@ De plus la fréquence de coupure possède toujours un affaiblissement de -3dB.
 
     \subsection{Tchebyscheff}
         \paragraph{}
+Le filtre de Tchebycheff est, tout comme le filtre de Butterworth, un filtre polynomial.
+Il possède cependant une meilleure sélectivité que ce dernier, mais sa courbe de réponse en bande passante présente des ondulations (il y en a n dans la bande passante, n étant la valeur de l'ordre du filtre).
+Sa coupure est un peu plus raide que pour un filtre de Butterworth.
 
     \subsection{Cauer}
         \paragraph{}
+Le filtre de Cauer, également appelé filtre elliptique, possède une ondulation à la fois en bande passante et en bande atténuée.
+La coupure est ici bien plus raide que les deux précédents filtres.
+Les signaux subissent en revanche une déformation assez importante.
 
     \subsection{Bessel}
         \paragraph{}
+Le filtre de Bessel, qui est également un filtre polynômial, offre un délai constant dans sa bande passante et une conservation de la phase des fréquences, la distorsion est donc minimale.
+La coupure est moins raide que celle d’un filtre de Butterworth.
 
     \subsection{Legendre}
         \paragraph{}
-
+Le filtre de Legendre, lui aussi polynômial, possède à la fois une atténuation monotone et une raideur maximale proche de la fréquence de coupure.
+Il n’y a pas d’ondulation dans la bande passante.
+On peut comparer la  raideur de coupure de ce filtre avec celle des autres filtres, on remarque qu’elle tend vers celle des filtres elliptiques.
 
     \clearpage
 
