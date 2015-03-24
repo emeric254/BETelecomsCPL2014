@@ -105,26 +105,26 @@ Toutefois lors de l’utilisation des hautes fréquences, le problème qui se po
 Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation, des capacités et des inductances qui influes sur le résultat du filtre.
 La fonction d’amplificateur opérationnel n’existe pas non plus.
 
-    \clearpage
+%    \clearpage
 
 
 \section{Comparaison de filtres}
-    \subsection{Caracteristiques}
-        \paragraph{}
-        \begin{itemize}
-            \item Pente d’atténuation supérieure à 40dB/décade autour de la fréquence de coupure;
-            \item Filtres d’ordre impair : Impédances d’entrée et de sortie identiques;
-            \item Ordre plus petit pour une grande sélectivité;
-            \item Calculs simples.
-        \end{itemize}
 
-    \subsection{Inconvenients}
-        \paragraph{}
-        \begin{itemize}
-            \item Très mauvaise linéarité de phase;
-            \item Temps de propagation de groupe non constant en bande passante (déphasage non linéaire);
-            \item Ondulation dans la bande passante, à ordre n, il présente n ondulation(s) dans la bande passante.
-        \end{itemize}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+                        & Butterworth   & Tchebycheff   & Cauer     & Bessel    & Legendre  \\
+        \hline
+            Coupure     & +             & ++            & +++       & +         & +++       \\
+        \hline
+            Ondulation  & ++            & -             & -         & ++        & +++       \\
+        \hline
+            Distorsion  & ++            & +             & -         & +++       & ++        \\
+        \hline
+            Calculs     & ++            & +++           & +         & ++        & -         \\
+        \hline
+            Réalisation & +++           & ++            & +         & +++       & -         \\
+        \hline
+    \end{tabular}
 
     \clearpage
 
