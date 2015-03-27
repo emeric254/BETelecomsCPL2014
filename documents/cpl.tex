@@ -2,48 +2,183 @@
 \chapter*{Introduction}
     \paragraph{}
 Dans le cadre de formation Système Télécommunication et Réseaux Informatiques, nous avons du réaliser un bureau d'étude en télécommunication.
-Le but de ce BE est de savoir faire une analyse d'un problème, savoir écrire une problématique, un planning prévisionnel des taches, faire une synthèse du travail réalisé et effectuer des recherches sur une problématique.
-Nous devons aussi nous préparer à répondre a des questions d'un public sur notre thème de recherche.
+Le but de ce BE est l'analyse d'un problème, l'écriture d'une problématique, de nous organiser sur nos tâches, la synthèse du travail réalisé et les recherches sur une problématique.
+Nous devons aussi nous préparer à répondre à des questions d'un public sur notre thème de recherche.
     \paragraph{}
-Notre thème est : « Les courants porteurs de ligne »
-Dans ce diaporama nous allons vous expliquer ce qu'est un CPL, ses usages et ses contraintes, ainsi qui est proposé actuellement  pour finir nous allons vous faire une étude de marché.
+Notre thème est : « Les courants porteurs de ligne ».
     \paragraph{}
-De nos jours nous voyons des maisons équipées avec de plus en plus d'objets et d'automatismes connectés, c'est la domotique.
-Elle représente le croisement entre la recherche en électronique, automatisme et celle du bâtiment voire génie civil.
-Et a pour but de centraliser et d'automatiser les taches qui sont présentes dans un bâtiment, ici une maison individuelle.
+De nos jours de plus en plus de maisons sont équipées d'objets et d'automatismes connectés, on parle alors la domotique.
+Elle représente le croisement entre la recherche en électronique, automatique, ergonomie, génie civil.
+La domotique a pour but de centraliser et d'automatiser les tâches du quotidien et actions nécessaires ou utiles dans un bâtiment, ici une maison individuelle.
     \paragraph{}
-Comme toute avancé technologique, celle de la domotique vise à améliorer et faciliter la vie de son utilisateur.
+Cette technologie utilise un certain nombre d'appareils pouvant être vu comme des terminaux distributeurs de données et actionneurs.
+Il est nécessaire de les interconnecter afin qu'ils puissent échanger entre eux et avec une console centrale.
     \paragraph{}
-Cette technologie utilisant un certain nombre d'appareils pouvant être vu comme des terminaux distribuant de la donnée, il est nécessaire de les interconnecter afin qu'ils puissent échanger avec l'unité centrale et entre eux.
-    \paragraph{}
-Suivant le type de construction, sa vétusté, sa disposition, la mise en place d'un tel système peut s'avérer très complexe, mais des solutions existent, c'est là qu'intervient le CPL.
-    \paragraph{}
-Nous allons montrer comment, le CPL peuvent représenter un avenir dans le domaine de la domotique en maison individuelle.
+Suivant le type de construction, sa vétusté et sa disposition, la mise en place d'un tel système peut s'avérer très complexe.
+De multiples solutions existent dont la technologie de CPL.
 
 \addcontentsline{toc}{part}{Introduction}
 
 
-
 \chapter*{Problématique}
-    \paragraph{}
-    \paragraph{}
-        \center{\LARGE En quoi les CPL peuvent-ils faciliter le développement des objets connectés dans les maisons individuelles ?}
-
+    \section*{En quoi les CPL peuvent-ils faciliter le développement des objets connectés dans les maisons individuelles ?}
 \addcontentsline{toc}{part}{Problématique}
 
 
 
 \chapter{La Domotique et les objets connectés}
     \section{La Domotique}
-        \subsection{Qu’est-ce que c’est ?}
+        \paragraph{}
+La domotique est le croisement entre l’ensemble des techniques de l’électronique, informatique, automatisme et bâtiment.
+        \paragraph{}
+Son but est d’automatiser et de centraliser tous les appareils présents dans une maison
+(du volet roulant en passant par le système de chauffage ou les éclairages) toujours dans la recherche de :
+            \begin{itemize}
+                \item Le confort optimal (portails automatiques, stores électriques, chauffages régulés);
+                \item La sécurité des biens et personnes.
+            \end{itemize}
+        \paragraph{}
+De nos jours de différentes thématiques apparaissent :
+            \begin{itemize}
+                \item La gestion des énergies autant économique qu'éco-responsable;
+                \item L'assistance aux handicapés.
+            \end{itemize}
+        \paragraph{}
+De nos jours les utilisateurs exigent d'avantage de commandes à distance de tous leurs équipements sans que ces derniers perdent en autonomie ou en facilité d'utilisation.
+Nous entrons dans l’ère de la domotique commandée à distance, qui se ne se contente plus d'automatiser les services :
+comment commander son installation avec son terminal depuis n'importe ou ?
+        \paragraph{}
+C’est ce que l’on appelle l’internet des objets.
+Très en vogue de nos jours, en particulier dans le domaine de l’électroménager: frigo, cafetière …
+Dans le but d'un déclenchement automatique ou d'une alarme d'état de l'équipement, toujours dans l’optique d’un meilleur confort.
+        \paragraph{}
+Le système domotique étant mis en réseau (et souvent connecté à internet), il est désormais possible de le piloter de n’importe où.
+Une personne peut très bien ouvrir les volets ou la porte de son garage sur son smartphone en étant au bureau.
+La programmation de ces actions est aussi possible et les différents appareils communiquent entre eux afin de connaître leur état.
+        \paragraph{}
+Même si certains protocoles logiciels sont propriétaires, les appareils se doivent de pouvoir communiquer sur un réseau informatique grand public,
+puisqu’ils seront pilotés par des applications sur ordinateur ou smartphone.
+On utilise donc des standards de l’informatique pour l’interconnexion des appareils :
+            \begin{itemize}
+                \item Câble Réseau;
+                \item WIFI;
+                \item RF433;
+                \item CPL.
+            \end{itemize}
+        \paragraph{}
+Dans ce BE nous avons choisi de nous orienter sur le CPL qui nous parait être une solution plus pérenne.
+
+
+    \section{CPL, Courant Porteur de Ligne}
+        \subsection{Principes de cette technologie}
             \paragraph{}
+La technologie du courant porteur en ligne (CPL) sert à transporter un signal haute fréquence de 1.6 à 30 MHz en le superposant au signal 50Hz du courant électrique du secteur.
+Il est ainsi possible de créer un réseau local Internet haut débit avec le réseau électrique d'un logement.
+Les câbles électriques déjà présents dans les habitations permettent donc la mise en réseau d'ordinateurs et de matériels.
+
+        \subsection{Fonctionnement et technique}
+            \paragraph{}
+La signal de la transmission des données est atténuée par différents critères comme l’ancienneté et l'état du réseau électrique, la longueur des câbles, l'utilisation de multi-prises, la présence d'autres appareils perturbant le signal ou encore la qualité des adaptateurs CPL utilisés.
+Le CPL est une alternative très intéressante aux long câbles Ethernet et au Wi-Fi à la sécurité et à la pollution électro-magnétique controversées.
+Créer son réseau local et partager sa connexion haut débit devient alors aussi simple que de brancher n'importe quel appareil sur une prise électrique murale.
+
+        \subsection{Normes et hétérogénéité}
+            \paragraph{}
+Avant d’en dire plus sur les débits observés dans les réseaux CPL, il est important de faire la différence entre deux types de réseaux,
+les réseaux «indoor» et «outdoor».
+            \paragraph{Les réseaux «indoor» (intérieur)}
+,il s'agit de câbles électriques situés entre le compteur électrique et tous les équipements d’un logement.
+Il est ainsi possible d'avoir un réseau composé uniquement d'une structure utilisant les réseaux CPL.
+Il est aussi possible d'associer au réseau CPL, des équipements Ethernet (tels que des switch, des routeurs, des modems, des bornes d'accès wifi...)
+tout en ne dépassant pas les limitations concernant le nombre d'utilisateurs ou de matériels connectés sur ces réseaux locaux.
+            \paragraph{Les réseaux «outdoor» (extérieur)}
+,il s'agit des câbles situés entre le compteur électrique et le transformateur général du quartier.
+On parle souvent de mise en place d’une boucle locale ou “dernier kilomètre”.
+Cette boucle relie les différentes habitations ou lieux où l'on veut mettre en place une solution CPL.
+Cette partie est gérée par le fournisseur d'accès.
+            \paragraph{}
+Du fait de ce découpage, un certain nombre de matériels vont être nécessaires pour relier les lieux en extérieur et les matériels en intérieur.
+Il n'est pas possible d'utiliser l'ensemble du réseau électrique pour fournir un accès à des réseaux plus globaux tels que l’internet.
+Le point d'entrée global, à savoir le transformateur ou la station électrique de quartier ne peut être réaliser en CPL car il s'agit d'une partie haute tension.
+Les réseaux CPL ne peuvent fonctionner que sur de basses et moyennes tensions, pour des problèmes d'interférences et de bruit électromagnétique.
+            \paragraph{}
+Voici quelques exemples des débits disponible actuellement sur le marché :
+                \begin{itemize}
+                    \item 14 Mbits/s \emph{(dépassé)} ;
+                    \item 85 Mbits/s \emph{(dépassé)} ;
+                    \item 200 Mbits/s \emph{(le strict minimum)} ;
+                    \item 500 Mbits/s ;
+                    \item 600 Mbits/s ;
+                    \item 650 Mbits/s \emph{range+ chez Devolo} ;
+                    \item 1 Gbit/s (1000 Mbits/s) \emph{avec prises de terre uniquement}.
+                \end{itemize}
+            \paragraph{}
+Tout comme pour les débits WiFi, 7 Gbits/s théorique pour le 802.11ac sur 8 bandes,
+les débits annoncés et réel pour le courant porteur en ligne ne sont pas égaux.
+Les vitesses réellement observées varient globalement de 45 à 75\% par rapport aux débits annoncés.
+Pour un adaptateur CPL 600 Mbits/s, cela permet tout de même des débits moyens tournant autour des 450 Mbits/s, soit près de 60 Moctets/s.
+
+
+\chapter{Produits actuellement disponibles}
+    \paragraph{}
+Pourquoi avons vous choisi de mettre en avant le CPL dans la domotique plutôt que la WIFI ou le câble réseau classique ?
+    \paragraph{}
+Le choix de la technologie du support de communication se repose sur trois points essentiels :
+        \begin{itemize}
+            \item La sécurité;
+            \item Le coût;
+            \item La topologie du bâtiment.
+        \end{itemize}
+    \paragraph{}
+En effet, selon l’utilisation, le critère de sécurité est mis en avant.
+Comparons avec une interconnexion basé sur des réseaux WIFI : l’espace ambiant est le support des communications.
+L’avantage indéniable est sa mise en place rapide et peu coûteuse.
+L’inconvénient est que cet espace est accessible à tous, certes il y a des protections d'accès au réseau (WEP, WPA/WPA2)
+mais il existe des méthodes d’attaque de plus en plus rapides et simples pour s’introduire dans le réseau utilisé par l’appareillage domotique.
+De plus, pour une installation la surface n'est pas négligeable et les murs sont susceptible de filtrer le signal (béton armé, armature zinc-placo).
+Il serait indispensable d’installer des répéteurs WIFI afin d’étendre le signal, tout cela invalide l’argument du «peu coûteux».
+    \paragraph{}
+La topologie de type filaire est la meilleure du point de vue sécurité, car pour s'introduire sur le réseau la seule possibilité est d’accéder au support physique.
+Pour une installation de ce type il faut cependant dépenser un budget considérable dans l’achat de longueurs de câble et d'équipements d’interconnexion.
+De plus, pour un bâtiment existant et non équipé, il faut compter en plus le passage des câbles et la modification de la structure entraînant un nouvel investissement financier.
+    \paragraph{}
+Les bâtiments existants sont donc particulièrement difficiles à équiper et c’est là que la technologie CPL prends tout son sens.
+Le support physique utilisé est l’installation électrique existante.
+Un bâtiment classique possède déjà une installation électrique, ce qui signifie qu'il n'y a pas d’investissements à faire dans le déploiement du support de communication.
+Il n’y a pas non plus d’équipement d’interconnexion à nécessairement utiliser ce qui est un avantage du point de vue budgétaire.
+La portée point à point d’un équipement CPL peut aller jusqu’à 300m.
+Étant donné que le support utilisé est aussi filaire, le seul moyen de s’introduire sur le réseau électrique du logement.
+Cela est moins sûr que Ethernet mais réduit grandement les risques d’intrusion par rapport à la WIFI.
+
+
+
+\chapter{Exemple type}
+            \paragraph{}
+Cette partie va être consacrée à une étude d’un exemple que l’on peut trouver dans une maison individuelle.
+Il va nous permettre de vous montrer que les CPL peuvent être très utilisés dans la domotique.
+            \paragraph{}
+Dans cette maison, on rencontre des équipements intelligents pour le chauffage, la production d’eau chaude, l’éclairage et la sécurité.
+Grâce à ces équipements, nous pouvons gérer la température dans différentes pièces pour le chauffage par exemple, ou l'humidités pour la ventilation dans une salle de bain après une douche.
+Tous ces appareils peuvent être inter-connectés grâce à des CPL qui peuvent transmettre les informations instantanément au compteur électrique, pour éviter les pics de consommation énergétique.
+Ainsi nous pourrons réduire les factures en étalant le fonctionnement de l'électroménager.
+Nous pouvons aussi étendre ce système à l’éclairage de la maison avec des détecteurs de mouvement qui peuvent allumer une lumière à l’arrivée d’une personne,
+des détecteurs de luminosité pour ouvrir les volets le jour, ou même allumer les différentes pièces pour simuler une présence et ainsi prévenir les cambriolages.
+Cela permet d'interagir avec les équipements une fois parti de la maison à notre guise, sur notre smartphone, tablette, ou autre terminal.
+Les risques d’incendie sont réduits en désactivant, par prise en main à distance ou automatiquement, des appareils puissants oubliés.
+
+
+%%%
+%%%
+%%%
+\chapter{AUTRES}
+        \subsection{Qu’est-ce que c’est ?}
 La domotique est l’ensemble des techniques de l'électronique, de physique du bâtiment, d'automatisme, de l'informatique et des télécommunications utilisées dans les bâtiments, plus ou moins « interopérables » et permettant de centraliser le contrôle des différents systèmes et sous-systèmes de la maison et de l'entreprise (chauffage, volets roulants, porte de garage, portail d'entrée, prises électriques, etc.).
 La domotique vise à apporter des solutions techniques pour répondre aux besoins de confort (gestion d'énergie, optimisation de l'éclairage et du chauffage), de sécurité (alarme) et de communication (commandes à distance, signaux visuels ou sonores, etc.) que l'on peut retrouver dans les maisons, les hôtels, les lieux publics, etc.
             \paragraph{}
-le pilotage des appareils « électrodomestiques », électroménagers par programmation d'horaires et/ou de macro (suites d'actions programmées réalisées par les appareils électroménagers) définis par l'usager. Le déclenchement des appareils peut être aussi lié à des évènements (détecteurs de mouvement, télécommandes, etc.) ;
+le pilotage des appareils « électro-domestiques », électroménagers par programmation d'horaires et/ou de macro (suites d'actions programmées réalisées par les appareils électroménagers) définis par l'usager. Le déclenchement des appareils peut être aussi lié à des évènements (détecteurs de mouvement, télécommandes, etc.) ;
 la gestion de l'énergie, du chauffage (par exemple, il est possible de gérer les apports naturels (calories, frigories, vent, lumière, eau…) en fonction de l'enveloppe thermique du bâtiment), de la climatisation, de la ventilation, de l'éclairage, de l’ouverture et de la fermeture des volets (en fonction de l'ensoleillement ou de l'heure de la journée, par exemple), de l'eau (le remplissage de la baignoire peut s’arrêter automatiquement grâce à un senseur, les robinets de lavabos peuvent ouvrir l’eau à l’approche des mains, etc.). Il est également possible de recharger certains appareils électriques (ordinateurs, véhicules électriques, etc.) en fonction du tarif horaire (voir Smart grid). Un compteur communicant peut être intégré dans un smart-grid et/ou raccordé à un système de télégestion. La Régulation/programmation du chauffage permet d'importantes économies ;
 la sécurité des biens et des personnes (alarmes, détecteur de mouvement, interphone, digicode) ;
-la communication entre appareil et utilisateur par le biais de la « sonification » (émission de signaux sous forme sonore) ;
+la communication entre appareil et utilisateur par le biais de la « son-ification » (émission de signaux sous forme sonore) ;
 le « confort acoustique ». Il peut provenir de l'installation d'un ensemble de haut-parleurs permettant de répartir le son et de réguler l’intensité sonore ;
 la compensation des situations de handicap et de dépendance.
 Elle peut aussi chercher à diminuer son empreinte écologique (« éco-domotique ») et celle de ses utilisateurs par une éco conception, en facilitant une meilleure maîtrise de la consommation énergétique de l'habitat, en améliorant l'efficience énergétique des installations
@@ -85,15 +220,6 @@ S'appuyant sur les câbles électriques déjà présents dans la plupart des hab
                 ...
     \section{Etude de l’art}
             \paragraph{Normes et hétérogénéité}
-                \begin{itemize}
-                    \item 14 Mbits/s \emph{(dépassé)} ;
-                    \item 85 Mbits/s \emph{(dépassé)} ;
-                    \item 200 Mbits/s \emph{(le strict minimum)} ;
-                    \item 500 Mbits/s ;
-                    \item 600 Mbits/s ;
-                    \item 650 Mbits/s \emph{range+ chez Devolo} ;
-                    \item 1 Gbit/s (1000 Mbits/s) \emph{avec prises de terre uniquement}.
-                \end{itemize}
 Tout comme pour les débits WiFi, \emph{ le \emph{802.11n} étant limité pour l'instant à 300 Mbits/s, le \emph{802.11ac} en double-bande aux alentours de 1900 Mbits/s}, les débits annoncés (\emph{théoriques}) pour le courant porteur en ligne ne sont pas aussi importants dans la réalité.
 Ainsi, les vitesses réellement observées varient globalement de 45 à 75\% par rapport aux débits annoncés.
 Pour un adaptateur CPL 600 Mbits/s, cela permet tout de même des débits moyens tournant autour des 450 Mbits/s, soit près de 60 Mio/s.
@@ -101,10 +227,3 @@ Pour un adaptateur CPL 600 Mbits/s, cela permet tout de même des débits moyens
     \section{Développement du CPL}
         ...
 
-
-
-\chapter{Produits actuellement disponibles}
-
-
-
-\chapter{Exemple type}
