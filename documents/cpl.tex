@@ -25,7 +25,7 @@ De multiples solutions existent dont la technologie de CPL.
 \addcontentsline{toc}{part}{Problématique}
 
 
-
+%%%%
 \chapter{La Domotique et les objets connectés}
     \section{La Domotique}
         \paragraph{}
@@ -43,6 +43,13 @@ De nos jours de différentes thématiques apparaissent :
                 \item La gestion des énergies autant économique qu'éco-responsable;
                 \item L'assistance aux handicapés.
             \end{itemize}
+        \begin{figure}
+            \begin{center}
+                \includegraphics[scale=0.5]{./images/cpl/imageUniteCentrale.jpg}
+            \end{center}
+                \caption{ Exemple de domotique à la structure de réseau dépassée } % ce qui apparait juste en dessous de l'image
+                \label{Exemple de domotique avec commande centrale}
+        \end{figure}
         \paragraph{}
 De nos jours les utilisateurs exigent d'avantage de commandes à distance de tous leurs équipements sans que ces derniers perdent en autonomie ou en facilité d'utilisation.
 Nous entrons dans l’ère de la domotique commandée à distance, qui se ne se contente plus d'automatiser les services :
@@ -57,7 +64,7 @@ Une personne peut très bien ouvrir les volets ou la porte de son garage sur son
 La programmation de ces actions est aussi possible et les différents appareils communiquent entre eux afin de connaître leur état.
         \paragraph{}
 Même si certains protocoles logiciels sont propriétaires, les appareils se doivent de pouvoir communiquer sur un réseau informatique grand public,
-puisqu’ils seront pilotés par des applications sur ordinateur ou smartphone.
+puisqu’ils seront pilotés par des applications sur des terminaux conventionnels tels que des ordinateurs ou des smartphones.
 On utilise donc des standards de l’informatique pour l’interconnexion des appareils :
             \begin{itemize}
                 \item Câble Réseau;
@@ -73,8 +80,15 @@ Dans ce BE nous avons choisi de nous orienter sur le CPL qui nous parait être u
         \subsection{Principes de cette technologie}
             \paragraph{}
 La technologie du courant porteur en ligne (CPL) sert à transporter un signal haute fréquence de 1.6 à 30 MHz en le superposant au signal 50Hz du courant électrique du secteur.
-Il est ainsi possible de créer un réseau local Internet haut débit avec le réseau électrique d'un logement.
+Il est ainsi possible de créer un réseau local avec accès Internet haut débit avec le réseau électrique d'un logement.
 Les câbles électriques déjà présents dans les habitations permettent donc la mise en réseau d'ordinateurs et de matériels.
+    \begin{figure}
+        \begin{center}
+            \includegraphics[scale=0.5]{./images/cpl/exempleReseauLocalCPL.jpg}
+        \end{center}
+            \caption{ Exemple de réseau local par CPL avec accès Internet haut débit } % ce qui apparait juste en dessous de l'image
+            \label{Exemple liens actuels avec CPL}
+    \end{figure}
 
         \subsection{Fonctionnement et technique}
             \paragraph{}
@@ -119,6 +133,7 @@ Les vitesses réellement observées varient globalement de 45 à 75\% par rappor
 Pour un adaptateur CPL 600 Mbits/s, cela permet tout de même des débits moyens tournant autour des 450 Mbits/s, soit près de 60 Moctets/s.
 
 
+%%%%
 \chapter{Produits actuellement disponibles}
     \paragraph{}
 Pourquoi avons vous choisi de mettre en avant le CPL dans la domotique plutôt que la WIFI ou le câble réseau classique ?
@@ -151,7 +166,7 @@ La portée point à point d’un équipement CPL peut aller jusqu’à 300m.
 Cela est moins sûr que Ethernet mais réduit grandement les risques d’intrusion par rapport à la WIFI.
 
 
-
+%%%%
 \chapter{Exemple type}
             \paragraph{}
 Cette partie va être consacrée à une étude d’un exemple que l’on peut trouver dans une maison individuelle.
@@ -167,6 +182,19 @@ Cela permet d'interagir avec les équipements une fois parti de la maison à not
 Les risques d’incendie sont réduits en désactivant, par prise en main à distance ou automatiquement, des appareils puissants oubliés.
 
 
+
+
+
+
+
+
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
+%%%
 %%%
 %%%
 %%%
@@ -213,17 +241,9 @@ Créer son réseau local et partager sa connexion haut-débit devient alors auss
 La technologie du courant porteur en ligne (CPL) permet de transporter un signal de haute fréquence en le superposant au signal 50hz du courant électrique qui est délivré par les traditionnelles prises de courant.
 Grâce à la transmission d'informations numériques sur le réseau électrique 220 Volts existant, il est ainsi possible de créer un réseau local Internet haut-débit avec le réseau électrique d'un logement.
 S'appuyant sur les câbles électriques déjà présents dans la plupart des habitations, le CPL permet la mise en réseau d'ordinateurs et de matériels équipés d'une prise RJ45 (Ethernet), dans un appartement, un bureau ou une maison, avec un débit théorique de transfert des données de l'ordre de plusieurs centaines de mégabits par seconde.
-        \subsection{Définition de la domotique}
-            \paragraph{Services automatisés}
-                ...
-            \paragraph{Maison plus confortable}
-                ...
     \section{Etude de l’art}
             \paragraph{Normes et hétérogénéité}
 Tout comme pour les débits WiFi, \emph{ le \emph{802.11n} étant limité pour l'instant à 300 Mbits/s, le \emph{802.11ac} en double-bande aux alentours de 1900 Mbits/s}, les débits annoncés (\emph{théoriques}) pour le courant porteur en ligne ne sont pas aussi importants dans la réalité.
 Ainsi, les vitesses réellement observées varient globalement de 45 à 75\% par rapport aux débits annoncés.
 Pour un adaptateur CPL 600 Mbits/s, cela permet tout de même des débits moyens tournant autour des 450 Mbits/s, soit près de 60 Mio/s.
-
-    \section{Développement du CPL}
-        ...
 
