@@ -42,7 +42,7 @@
 
     \clearpage
 
-    \setcounter{tocdepth}{2} % définir la profondeur de l'Index
+    \setcounter{tocdepth}{3} % définir la profondeur de l'Index
     \renewcommand{\contentsname}{Sommaire} % renommer l'Index en Sommaire
     \tableofcontents{} % afficher l'Index
 
@@ -159,15 +159,36 @@ On peut comparer la  raideur de coupure de ce filtre avec celle des autres filtr
     \clearpage
 
 
-\section{Calculs}
-    \paragraph{}
+\section*{Annexes}
+\addcontentsline{toc}{section}{Annexes}
+    \subsection{Code HTML}
+\lstset{
+    language=html, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+        \lstinputlisting{../Filtres/sources/index.html}
+
+    \clearpage
+
+    \subsection{Code JavaScript}
+\lstset{
+    language=javascript, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+        \paragraph{}
 Afin de réaliser un programme de calcul des filtres passe-bas de Tchebyscheff, nous avons choisi d’utiliser du JavaScript (pour la partie traitement) associé au couple HTML/CSS (pour la partie rendu et affichage).
 Dans la partie JavaScript, nous calculons les valeurs des éléments localisés Lk, Ck et Rn à partir des caractéristiques du filtre.
 Ces dernières, fournies par l'utilisateur, sont l’ordre, le taux d’ondulation maximal, la fréquence de coupure ainsi que l’impédance R1.
-    \paragraph{}
+        \paragraph{}
 A partir des valeurs saisies, nous calculons la pulsation, la valeur de beta et de gamma, ensuite la valeur de R en appliquant la bonne formule selon si l’ordre est pair ou impair.
 Puis nous déterminons les valeurs des Ak, Bk, Gk, L, C.
-    \paragraph{}
+        \paragraph{}
 Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordre, la valeur du condensateur C, celle de l’inductance L et celle de la résistance R.
     \\
     \begin{figure}[h]
@@ -180,8 +201,9 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsection{calcul de la pulsation}
-        \paragraph{}
+    \subsubsection{Calculs}
+
+        \paragraph{calcul de la pulsation}
         \[ W_{c} = 2 * \pi * \mbox{ Fréquence de coupure}\]
         \begin{lstlisting}
             /* pulsation */
@@ -190,8 +212,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de beta}
-        \paragraph{}
+        \paragraph{calcul de beta}
         \[ \mbox{Béta } \beta = \log( \frac{ \cosh( \frac{ \mbox{Ondulation} }{17,37} ) } { \sinh( \frac{ \mbox{Ondulation} }{17,37} ) } )\]
         \begin{lstlisting}
             /* beta */
@@ -200,8 +221,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de gamma}
-        \paragraph{}
+        \paragraph{calcul de gamma}
         \[ \mbox{Gamma } \gamma = \sinh( \frac{ \beta }{ 2 * \mbox{Ordre} } ) \]
         \begin{lstlisting}
             /* gamma */
@@ -212,8 +232,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsection{calcul de R}
-        \paragraph{}
+        \paragraph{calcul de R}
         Si l'ordre est pair \[ R_{n} = ( \tanh{ \frac{ \beta }{ 4 } } ) ^2 * \mbox{Impédance} \]
         Si l'ordre est impair \[ R_{n} = \mbox{Impédance} \]
         \begin{lstlisting}
@@ -234,8 +253,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de Ak }
-        \paragraph{}
+        \paragraph{calcul de Ak}
         \[ A_{k} = \frac{\sin{2 * (k-1) * \pi}}{2 * \mbox{Ordre}} \]
         \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
@@ -250,8 +268,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsection{calcul de Bk }
-        \paragraph{}
+        \paragraph{calcul de Bk}
         \[ B_{k} = \gamma ^2 + \sin( \frac{k * \pi}{\mbox{Ordre}} ) ^2 \]
         \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
@@ -264,8 +281,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de Gk }
-        \paragraph{}
+        \paragraph{calcul de Gk}
         \[ G_1 = 2 * \frac{A_1}{\gamma} \]
         \[ G_{k} = \frac{(4 * A_{k-1} * A_{k})}{B_{k-1} * G_{k-1}} \]
         \[ k \mbox{ étant la position du composant} \]
@@ -283,8 +299,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsection{calcul de Lk }
-        \paragraph{}
+        \paragraph{calcul de Lk }
         \[ L_{k} = \frac{G_{k} * \mbox{Impédance}}{W_{c}} \]
         \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
@@ -297,8 +312,7 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-    \subsection{calcul de Ck }
-        \paragraph{}
+        \paragraph{calcul de Ck }
         \[ C_{k} = \frac{G_{k}}{\mbox{Impédance} * W_{c}} \]
         \[ k \mbox{ étant la position du composant} \]
         \begin{lstlisting}
@@ -311,30 +325,8 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
         \end{lstlisting}
 
-
     \clearpage
-
-\section{Code complet}
-    \subsection{HTML}
-\lstset{
-    language=html, commentstyle=\textit, frame=shadowbox,
-    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=4, extendedchars=true, showspaces=false,
-    showstringspaces=false, numbers=left, numberstyle=\tiny,
-    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-}
-        \lstinputlisting{../Filtres/sources/index.html}
-
-    \clearpage
-
-    \subsection{JavaScript}
-\lstset{
-    language=javascript, commentstyle=\textit, frame=shadowbox,
-    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=4, extendedchars=true, showspaces=false,
-    showstringspaces=false, numbers=left, numberstyle=\tiny,
-    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-}
+    \subsubsection{Code Complet}
         \lstinputlisting{../Filtres/sources/rsc/app.js}
 
     \clearpage
