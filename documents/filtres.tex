@@ -156,31 +156,9 @@ Le filtre de Legendre, lui aussi polynômial, possède à la fois une atténuati
 Il n’y a pas d’ondulation dans la bande passante.
 On peut comparer la  raideur de coupure de ce filtre avec celle des autres filtres, on remarque qu’elle tend vers celle des filtres elliptiques.
 
-    \clearpage
+    \clearpage{}
 
-
-\section*{Annexes}
-\addcontentsline{toc}{section}{Annexes}
-    \subsection{Code HTML}
-\lstset{
-    language=html, commentstyle=\textit, frame=shadowbox,
-    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=4, extendedchars=true, showspaces=false,
-    showstringspaces=false, numbers=left, numberstyle=\tiny,
-    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-}
-        \lstinputlisting{../Filtres/sources/index.html}
-
-    \clearpage
-
-    \subsection{Code JavaScript}
-\lstset{
-    language=javascript, commentstyle=\textit, frame=shadowbox,
-    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
-    tabsize=4, extendedchars=true, showspaces=false,
-    showstringspaces=false, numbers=left, numberstyle=\tiny,
-    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
-}
+    \section{Notre outil logiciel de calcul}
         \paragraph{}
 Afin de réaliser un programme de calcul des filtres passe-bas de Tchebyscheff, nous avons choisi d’utiliser du JavaScript (pour la partie traitement) associé au couple HTML/CSS (pour la partie rendu et affichage).
 Dans la partie JavaScript, nous calculons les valeurs des éléments localisés Lk, Ck et Rn à partir des caractéristiques du filtre.
@@ -201,7 +179,35 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
 
     \clearpage
 
-    \subsubsection{Calculs}
+
+\section*{Annexes}
+\addcontentsline{toc}{section}{Annexes}
+
+    \subsection*{Code HTML}
+\addcontentsline{toc}{subsection}{Code HTML}
+\lstset{
+    language=html, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+        \lstinputlisting{../Filtres/sources/index.html}
+
+    \clearpage
+
+    \subsection*{Code JavaScript}
+\addcontentsline{toc}{subsection}{Code JavaScript}
+\lstset{
+    language=javascript, commentstyle=\textit, frame=shadowbox,
+    rulesepcolor=\color{gray}, basicstyle=\ttfamily\small, columns=flexible,
+    tabsize=4, extendedchars=true, showspaces=false,
+    showstringspaces=false, numbers=left, numberstyle=\tiny,
+    breaklines=true, breakautoindent=true, captionpos=b, morecomment=[l]{//}
+}
+
+    \subsubsection*{Calculs}
+\addcontentsline{toc}{subsubsection}{Calculs}
 
         \paragraph{calcul de la pulsation}
         \[ W_{c} = 2 * \pi * \mbox{ Fréquence de coupure}\]
@@ -326,7 +332,8 @@ Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordr
         \end{lstlisting}
 
     \clearpage
-    \subsubsection{Code Complet}
+    \subsubsection*{Code Complet}
+\addcontentsline{toc}{subsubsection}{Code Complet}
         \lstinputlisting{../Filtres/sources/rsc/app.js}
 
     \clearpage
