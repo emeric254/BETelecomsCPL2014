@@ -94,15 +94,15 @@ On émet finalement un nouveau signal généré à partir de ce flux binaire de 
 \section{Différences entre filtre passif et actif}
     \paragraph{}
 Les filtres passifs sont composés uniquement d’éléments passifs (c’est-à-dire des éléments résistifs, capacitifs et inductifs).
-De ce fait, le gain d’un tel filtre ne peut excéder 1, un tel type de filtre ne peut qu’atténuer une partie d’un signal, il ne peut donc pas être utilisé donc le but d’amplifier un signal.
-Les réalisations les plus simples sont réalisées à partir de circuits RC ou RL, cependant on peut trouver des association diverses de composants (comme LC ou RLC), toutefois ces circuits sont plus complexes.
+De ce fait, le gain d’un tel filtre ne peut excéder 1. Un tel type de filtre ne peut qu’atténuer une partie d’un signal, il ne peut donc pas être utilisé dans le but d’amplifier un signal.
+Les réalisations les plus simples sont réalisées à partir de circuits RC ou RL, cependant on peut trouver des associations diverses de composants (comme LC ou RLC), mais ces circuits sont plus complexes.
     \paragraph{}
 Les filtres actifs contiennent au moins un élément actif, comme un transistor ou un amplificateur opérationnel, qui va amplifier le signal.
 Avec un tel filtre, il est possible d’avoir un gain supérieur à 1.
 On peut les utiliser pour atténuer tout comme pour amplifier certaines fréquences d’un signal.
     \paragraph{}
 Toutefois lors de l’utilisation des hautes fréquences, le problème qui se pose est que la notion de filtre ne signifie plus rien.
-Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation, des capacités et des inductances qui influes sur le résultat du filtre.
+Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation, des capacités et des inductances qui influent sur le résultat du filtre.
 La fonction d’amplificateur opérationnel n’existe pas non plus.
 
 %    \clearpage
@@ -128,14 +128,14 @@ La fonction d’amplificateur opérationnel n’existe pas non plus.
 
     \subsection{Butterworth}
         \paragraph{}
-Le filtre de Butterworth est un filtre polynomial qui possède un gain qui est constant dans la bande passante.
+Le filtre de Butterworth est un filtre polynômial qui possède un gain qui est constant dans la bande passante.
 En effet, il possède une réponse qui est la plus plate possible, il n’y a pas d’ondulation.
 Un tel filtre est le seul filtre linéaire qui a une forme générale qui est similaire quelque soit l’ordre.
-De plus la fréquence de coupure possède toujours un affaiblissement de -3dB.
+De plus, la fréquence de coupure possède toujours un affaiblissement de -3dB.
 
     \subsection{Tchebyscheff}
         \paragraph{}
-Le filtre de Tchebycheff est, tout comme le filtre de Butterworth, un filtre polynomial.
+Le filtre de Tchebycheff est, tout comme le filtre de Butterworth, un filtre polynômial.
 Il possède cependant une meilleure sélectivité que ce dernier, mais sa courbe de réponse en bande passante présente des ondulations (il y en a n dans la bande passante, n étant la valeur de l'ordre du filtre).
 Sa coupure est un peu plus raide que pour un filtre de Butterworth.
 
