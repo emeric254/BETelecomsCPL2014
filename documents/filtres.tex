@@ -52,10 +52,12 @@
 \section{Définition}
     \paragraph{}
 Un filtre est un dispositif (actif ou passif) qui permet de réaliser une opération de traitement du signal.
-En effet, il permet de transformer un signal reçu en entrée en un signal de sortie différent par le biais de circuits électroniques, ces derniers servant à modifier le spectre de fréquence et/ou la phase du signal reçu.
+En effet, il permet de transformer un signal reçu en entrée en un signal de sortie différent par le biais de circuits électroniques,
+ces derniers servant à modifier le spectre de fréquence et/ou la phase du signal reçu.
     \paragraph{}
 Les filtres permettent donc l’isolement, l’élimination ou la séparation de signaux.
-Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquences parasites (comme du bruit), et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
+Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquences parasites (comme du bruit),
+et/ou à isoler une information utile présente au sein d'une certaine bande passante d'un signal.
     \\
     \begin{figure}[h]
         \begin{center}
@@ -80,7 +82,7 @@ Ce traitement peut par exemple consister à éliminer ou affaiblir des fréquenc
     \paragraph{}
 Parmi les différents filtres existants, on peut les classer selon deux catégories : analogiques ou numériques.
     \paragraph{}
-Un filtre analogique permet de traiter de façon analogique un signal en retirant les signaux indésirables afin de ne conserver qu’un signal utile.
+Un filtre analogique permet de traiter de façon analogique un signal en retirant les signaux indésirables afin de ne conserver que le signal utile.
 De ce fait, le signal qui le traverse est diffèrent en sortie que celui présent en entrée, cette modification est appliquée directement au signal.
     \paragraph{}
 Un filtre numérique permet de traiter numériquement un signal.
@@ -94,15 +96,18 @@ On émet finalement un nouveau signal généré à partir de ce flux binaire de 
 \section{Différences entre filtre passif et actif}
     \paragraph{}
 Les filtres passifs sont composés uniquement d’éléments passifs (c’est-à-dire des éléments résistifs, capacitifs et inductifs).
-De ce fait, le gain d’un tel filtre ne peut excéder 1. Un tel type de filtre ne peut qu’atténuer une partie d’un signal, il ne peut donc pas être utilisé dans le but d’amplifier un signal.
-Les réalisations les plus simples sont réalisées à partir de circuits RC ou RL, cependant on peut trouver des associations diverses de composants (comme LC ou RLC), mais ces circuits sont plus complexes.
+De ce fait, le gain d’un tel filtre ne peut excéder 1. Un tel type de filtre ne peut qu’atténuer une partie d’un signal,
+il ne peut donc pas être utilisé dans le but d’amplifier un signal.
+Les réalisations les plus simples sont réalisées à partir de circuits RC ou RL, cependant on peut trouver des associations diverses de composants (comme LC ou RLC),
+mais ces circuits sont plus complexes.
     \paragraph{}
 Les filtres actifs contiennent au moins un élément actif, comme un transistor ou un amplificateur opérationnel, qui va amplifier le signal.
 Avec un tel filtre, il est possible d’avoir un gain supérieur à 1.
 On peut les utiliser pour atténuer tout comme pour amplifier certaines fréquences d’un signal.
     \paragraph{}
 Toutefois lors de l’utilisation des hautes fréquences, le problème qui se pose est que la notion de filtre ne signifie plus rien.
-Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation, des capacités et des inductances qui influent sur le résultat du filtre.
+Tous les composants, y compris les lignes électromagnétiques, constituant le filtre possèdent une atténuation,
+des capacités et des inductances qui influent sur le résultat du filtre.
 La fonction d’amplificateur opérationnel n’existe pas non plus.
 
 %    \clearpage
@@ -160,14 +165,17 @@ On peut comparer la  raideur de coupure de ce filtre avec celle des autres filtr
 
     \section{Notre outil logiciel de calcul}
         \paragraph{}
-Afin de réaliser un programme de calcul des filtres passe-bas de Tchebyscheff, nous avons choisi d’utiliser du JavaScript (pour la partie traitement) associé au couple HTML/CSS (pour la partie rendu et affichage).
+Afin de réaliser un programme de calcul des filtres passe-bas de Tchebyscheff,
+nous avons choisi d’utiliser du JavaScript (pour la partie traitement) associé au couple HTML/CSS (pour la partie rendu et affichage).
 Dans la partie JavaScript, nous calculons les valeurs des éléments localisés Lk, Ck et Rn à partir des caractéristiques du filtre.
 Ces dernières, fournies par l'utilisateur, sont l’ordre, le taux d’ondulation maximal, la fréquence de coupure ainsi que l’impédance R1.
         \paragraph{}
-A partir des valeurs saisies, nous calculons la pulsation, la valeur de beta et de gamma, ensuite la valeur de R en appliquant la bonne formule selon si l’ordre est pair ou impair.
+A partir des valeurs saisies, nous calculons la pulsation, la valeur de beta et de gamma,
+ensuite la valeur de R en appliquant la bonne formule selon si l’ordre est pair ou impair.
 Puis nous déterminons les valeurs des Ak, Bk, Gk, L, C.
         \paragraph{}
-Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordre, la valeur du condensateur C, celle de l’inductance L et celle de la résistance R.
+Nous affichons les résultats sous la forme d’un tableau en indiquant l’ordre,
+la valeur du condensateur C, celle de l’inductance L et celle de la résistance R.
     \\
     \begin{figure}[h]
         \begin{center}
