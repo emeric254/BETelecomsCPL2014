@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr" style="position:relative; min-heigth:100%;">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="rsc/bootstrap.min.css">
+        <title>Calcul de filtres</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="./rsc/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="./rsc/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="./rsc/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="./rsc/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="./rsc/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="./rsc/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="./rsc/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="./rsc/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="./rsc/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="./rsc/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./rsc/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="./rsc/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./rsc/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./rsc/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="./rsc/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <body role="document" style="padding-top:50px; padding-bottom:20px; margin-bottom:60px;">
+
+    <!-- barre de menu -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Accueil</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="aide.html">Aide</a></li>
+                        <li><a href="credits.html">A propos</a></li>
+                    </ul>
+                    <!-- repo = https://github.com/emeric254/BETelecomsCPL2014 -->
+                    <p class="navbar-text navbar-right"><a target="_blank" href="http://emeric254.github.io/BETelecomsCPL2014/">B.E. Telecoms : Groupe 12</a></p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- barre de titre -->
+        <div class="jumbotron">
+            <div class="container theme-showcase" role="main">
+                <h1>Calcul de filtres de Tchebychev</h1>
+            </div>
+        </div>
+
+        <!-- contenu de la page -->
+        <div class="container">
+
+            <!-- saisies -->
+            <div class="col-lg-4">
+                <form name="general" action="index.html">
+
+                    <div class="form-group">
+                        <label for="inputN"> N (ordre) : </label>
+                        <div class="input-group">
+                            <input type="number" min="1" step="1" class="form-control" id="inputN" value="1" data-bind="value:inputN" >
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputOmax"> Omax (taux d'ondulation maximal) : </label>
+                        <div class="input-group">
+                            <input type="number" min="0.1" step="0.1" class="form-control" id="inputOmax" value="1" data-bind="value:inputOmax" >
+                            <span class="input-group-addon"> dB </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputFreqc"> Fc (fr&eacute;quence de coupure) : </label>
+                        <div class="input-group">
+                            <input type="number" min="1" class="form-control" id="inputFreqc" value="1000" data-bind="value:inputFreqc" >
+                            <span class="input-group-addon"> MHz </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputRi"> Ri (imp&eacute;dance) : </label>
+                        <div class="input-group">
+                            <input type="number" min="1" class="form-control" id="inputRi" value="50" data-bind="value:inputRi" >
+                            <span class="input-group-addon"> &#937; </span>
+                        </div>
+                    </div>
+
+                    <input type="button" onclick="main(general);" value="Valider" class="btn btn-lg btn-success">
+                    <input type="button" onclick="location.reload();" value="Reset" class=" btn btn-lg btn-danger">
+                </form>
+                <hr>
+            </div>
+            <!-- resultats -->
+            <div  class="col-lg-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> R&eacute;sultats </h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="resultats"> </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- l'application -->
+        <script src="rsc/app.js"></script>
+    </body>
+</html>
